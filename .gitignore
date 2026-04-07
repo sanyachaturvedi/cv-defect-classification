@@ -9,7 +9,7 @@ ENV/
 
 data/
 __pycache__/
-
+outputs/best_model.pt
 
 
 # IDEs
