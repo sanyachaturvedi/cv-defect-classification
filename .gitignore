@@ -9,9 +9,8 @@ ENV/
 
 data/
 __pycache__/
-# Data and Outputs
-data/
-outputs/
+
+
 
 # IDEs
 .vscode/

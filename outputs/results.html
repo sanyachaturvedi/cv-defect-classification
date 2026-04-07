@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defect Classification Results</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; background: #f4f7f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .subtitle { color: #7f8c8d; font-size: 1.1em; }
+        .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 30px; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; color: #34495e; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .metric-box { text-align: center; padding: 20px; background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; }
+        .metric-value { font-size: 2em; font-weight: bold; color: #3498db; display: block; }
+        .metric-label { color: #95a5a6; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; }
+        img.confusion-matrix { display: block; margin: 20px auto; max-width: 100%; border-radius: 4px; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f9f9f9; font-weight: 600; color: #2c3e50; }
+        .status-match { color: #27ae60; font-weight: 600; }
+        .status-mismatch { color: #e74c3c; font-weight: 600; }
+        ul.dist-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; }
+        ul.dist-list li { background: #ebf5fb; padding: 8px 15px; border-radius: 20px; color: #2980b9; font-size: 0.9em; }
+        .obs-list li { margin-bottom: 10px; }
+        footer { text-align: center; margin-top: 40px; color: #95a5a6; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rigetti Defect Classification Results</h1>
+            <p class="subtitle">Image Classification Performance Dashboard</p>
+        </header>
+
+        <section class="card">
+            <h2>Model Summary</h2>
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <span class="metric-value">ResNet18</span>
+                    <span class="metric-label">Architecture</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value">3000</span>
+                    <span class="metric-label">Total Predictions</span>
+                </div>
+                <div class='metric-box'><span class='metric-value'>100.00%</span><span class='metric-label'>Inferred Accuracy</span></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Predicted Class Distribution</h2>
+            <ul class="dist-list">
+                <li><strong>crack:</strong> 600</li><li><strong>hole:</strong> 600</li><li><strong>normal:</strong> 600</li><li><strong>rust:</strong> 600</li><li><strong>scratch:</strong> 600</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Error Analysis</h2>
+            <p>Confusion matrix indicating the model's classification patterns across categories:</p>
+            <img src="confusion_matrix.png" alt="Confusion Matrix" class="confusion-matrix">
+        </section>
+
+        <section class="card">
+            <h2>Sample Predictions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image Path</th>
+                        <th>True Label</th>
+                        <th>Predicted Label</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><code>test/rust/rust_00020.png</code></td>
+                <td>rust</td>
+                <td class="status-match">rust</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/hole/hole_02981.png</code></td>
+                <td>hole</td>
+                <td class="status-match">hole</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/rust/rust_00098.png</code></td>
+                <td>rust</td>
+                <td class="status-match">rust</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/crack/crack_01314.png</code></td>
+                <td>crack</td>
+                <td class="status-match">crack</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/scratch/scratch_00550.png</code></td>
+                <td>scratch</td>
+                <td class="status-match">scratch</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/hole/hole_02657.png</code></td>
+                <td>hole</td>
+                <td class="status-match">hole</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/normal/normal_01017.png</code></td>
+                <td>normal</td>
+                <td class="status-match">normal</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/rust/rust_01610.png</code></td>
+                <td>rust</td>
+                <td class="status-match">rust</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/crack/crack_02099.png</code></td>
+                <td>crack</td>
+                <td class="status-match">crack</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/scratch/scratch_00901.png</code></td>
+                <td>scratch</td>
+                <td class="status-match">scratch</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/rust/rust_02285.png</code></td>
+                <td>rust</td>
+                <td class="status-match">rust</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/crack/crack_00261.png</code></td>
+                <td>crack</td>
+                <td class="status-match">crack</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/hole/hole_00237.png</code></td>
+                <td>hole</td>
+                <td class="status-match">hole</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/normal/normal_02812.png</code></td>
+                <td>normal</td>
+                <td class="status-match">normal</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/scratch/scratch_01829.png</code></td>
+                <td>scratch</td>
+                <td class="status-match">scratch</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/hole/hole_01512.png</code></td>
+                <td>hole</td>
+                <td class="status-match">hole</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/hole/hole_02482.png</code></td>
+                <td>hole</td>
+                <td class="status-match">hole</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/crack/crack_02378.png</code></td>
+                <td>crack</td>
+                <td class="status-match">crack</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/scratch/scratch_01667.png</code></td>
+                <td>scratch</td>
+                <td class="status-match">scratch</td>
+            </tr>
+        
+            <tr>
+                <td><code>test/scratch/scratch_00753.png</code></td>
+                <td>scratch</td>
+                <td class="status-match">scratch</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Observations</h2>
+            <ul class="obs-list">
+                <li><strong>Class Consistency:</strong> Check the distribution above to ensure no single class is dominating predictions unexpectedly.</li>
+                <li><strong>Common Mistakes:</strong> Review the confusion matrix for overlap between similar textures (e.g., rust vs. scratch).</li>
+                <li><strong>Data Representative:</strong> These 20 samples were randomly selected from the test dataset.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Project Deliverables</h2>
+            <p>Full results and artifacts available in the <code>outputs/</code> directory:</p>
+            <ul>
+                <li><code>predictions.csv</code>: Raw inference data</li>
+                <li><code>confusion_matrix.png</code>: Graphical performance analysis</li>
+                <li><code>best_model.pt</code>: Optimized model weights</li>
+            </ul>
+        </section>
+
+        <footer>
+            &copy; 2026 Rigetti Defect Classification Project
+        </footer>
+    </div>
+</body>
+</html>
+    
